@@ -1,23 +1,31 @@
-import logo from './logo.svg';
-import './App.css';
+import axios from "axios";
+import { useEffect} from "react"
 
-function App() {
+  function App() {
+
+      useEffect( ()=>{
+        axios({
+          url:"http://www.mapquestapi.com/search/v4/place",
+          dataResponse: "json",
+          method: "GET",
+          params:{
+            key:"xOG9wyWI46505EyeBFsyk2RAHOt2QD6G",
+            q:"hotels",
+            sort:"relevance",
+
+          }
+        }).then ( (res)=>{
+          console.log(res.data.results);
+        })
+
+      })
+
+
+
+
   return (
     <div className="App">
-      <header className="App-header">
-        <img src={logo} className="App-logo" alt="logo" />
-        <p>
-          Edit <code>src/App.js</code> and save to reload.
-        </p>
-        <a
-          className="App-link"
-          href="https://reactjs.org"
-          target="_blank"
-          rel="noopener noreferrer"
-        >
-          Learn React
-        </a>
-      </header>
+      
     </div>
   );
 }
